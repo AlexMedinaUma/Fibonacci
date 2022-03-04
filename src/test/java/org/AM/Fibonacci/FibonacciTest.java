@@ -1,6 +1,8 @@
 package org.AM.Fibonacci;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -17,10 +19,15 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  */
 class FibonacciTest {
     private Fibonacci fibonacci;
-
+    @BeforeEach
+    public void setUp(){
+        fibonacci = new Fibonacci();
+    }
+    @AfterEach
+    public void finish(){ fibonacci = null;
+    }
     @Test
     public void testComputeReturn0IfTheNumberIs0() { // This method retun 0 if the computed value is 0
-        fibonacci = new Fibonacci();
         int expectedValue = 0;
         int obtainedValue = fibonacci.compute(0);
 
@@ -28,7 +35,6 @@ class FibonacciTest {
     }
     @Test
     public void testComputeReturn1IfTheNumberIs1() { // This method retun 1 if the computed value is 1
-        fibonacci = new Fibonacci();
         int expectedValue = 1;
         int obtainedValue = fibonacci.compute(1);
 
@@ -36,7 +42,6 @@ class FibonacciTest {
     }
     @Test
     public void testComputeReturn1IfTheNumberIs2() { // This method retun 1 if the computed value is 2
-        fibonacci = new Fibonacci();
         int expectedValue = 1;
         int obtainedValue = fibonacci.compute(2);
 
@@ -44,7 +49,6 @@ class FibonacciTest {
     }
     @Test
     public void testComputeReturn2IfTheNumberIs3() { // This method retun 2 if the computed value is 3
-        fibonacci = new Fibonacci();
         int expectedValue = 1;
         int obtainedValue = fibonacci.compute(1);
 
@@ -52,7 +56,6 @@ class FibonacciTest {
     }
     @Test
     public void testComputeReturn21IfTheNumberIs8() {// This method return 21 if the computed value is 8
-        fibonacci = new Fibonacci();
         int expectedValue = 21;
         int obtainedValue = fibonacci.compute(8);
 
@@ -60,7 +63,6 @@ class FibonacciTest {
     }
     @Test
     public void testComputeReturnErrorIfTheNumberIsNegative() {
-        fibonacci = new Fibonacci();
         assertThrows(RuntimeException.class, () -> fibonacci.compute(-6));
 
     }

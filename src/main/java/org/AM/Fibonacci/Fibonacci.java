@@ -8,7 +8,7 @@ package org.AM.Fibonacci;
 
 public class Fibonacci {
     public int compute(int value) {
-        int result = 0;
+        int result;
         if(value < 0){
             throw new RuntimeException("The value is negative: " + value);
         } else if(value == 0){
@@ -16,7 +16,7 @@ public class Fibonacci {
         } else if(value == 1){
             result = 1;
         }else{
-            result += compute(value - 1) + compute(value - 2);
+            result = compute(value - 1) + compute(value - 2);
         }
         return result;
     }
